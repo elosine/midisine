@@ -40,8 +40,7 @@ void loop(){
   duration = pulseIn(echoPin, HIGH);
  
   // convert the time into a distance
-  cm = constrain( ((duration/2) / 29.1), 0.0, 60.0 );
-
+  cm = constrain( ((duration/2) / 29.1), 0.0, 60.0 ); //Can adjust the upper limit (60)
   Serial.print("us1:");
   Serial.println(cm);  
   delay(33);
