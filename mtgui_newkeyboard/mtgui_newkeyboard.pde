@@ -7,7 +7,7 @@ NetAddress sc;
 float pitch, amp;
 float keyw;
 float r1 = 42.0;
-float r2 = 70.0;
+float r2 = 80.0;
 int startpart; //offset from c, e.g. d=2, f#=6...
 
 int numkeys;
