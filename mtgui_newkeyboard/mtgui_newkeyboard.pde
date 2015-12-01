@@ -29,6 +29,7 @@ void setup() {
 
 void draw() {
   background(255);
+
   if (mousePressed) {
     pitch = map(mouseX, 0.0, width, r1, r2); //two octave range
     amp = norm(mouseY, height, 0.0);
@@ -38,7 +39,12 @@ void draw() {
     OscMessage ampmsg = new OscMessage("/amp");
     ampmsg.add(amp);
     osc.send(ampmsg, sc);
+
+    OscMessage trig = new OscMessage("/trig");
+    trig.add(1);
+    osc.send(trig, sc);
   }
+
   strokeWeight(2);
   for (int i=0; i<numkeys; i++) {
     int n = i+startpart;
@@ -47,7 +53,8 @@ void draw() {
       fill(0);
       keyh = height-50;
       noStroke();
-    } else {
+    } //
+    else {
       //parameters for white keys
       fill(255);
       keyh = height;
@@ -64,15 +71,6 @@ void draw() {
 }
 
 void mousePressed() {
-  /*
- 
-   
-   
-   */
-
-  OscMessage trig = new OscMessage("/trig");
-  trig.add(1);
-  osc.send(trig, sc);
 }
 
 void mouseReleased() {
